@@ -23,6 +23,8 @@ function computerPlay() {
 
 
 //The Player and Computer play a round of Rock Paper Scissors to see who will win.
+//playRound compares playerSelection vs computerSelection to see who wins
+//Then returns playerWinRound or computerWinRound " wins this round!"
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection ){
@@ -47,7 +49,12 @@ function playRound(playerSelection, computerSelection) {
             return computerWinRound;
         }
 }
-
+//this is the game loop
+//player receives a prompt choose between rock, paper or scissors
+//computer also randomly chooses a choice
+//each round print player/computer score and message
+//each round, gameScore checks the roundResult
+//if the player/computer's score equals 5, end the game
 for (let i = 0; i < 1000; i++) {
     let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
     const computerSelection = computerPlay();
@@ -61,6 +68,9 @@ for (let i = 0; i < 1000; i++) {
       break;
     }
 }
+//if the result of a round equals the playerWinRound, increment playerScore
+//if the result of a round equals a draw, increment up draws
+//if none of these are equal, increment the computer's score
 function gameScore(result) {
   
   if (result === playerWinRound) {
@@ -71,7 +81,8 @@ function gameScore(result) {
     computerScore++;
   }
 
-
+//if the player's score increments up to and equals 5, print playerWin string(Player wins the game! Congratulations!)
+//if the computer's score increments up to and equals 5, print computerWin string(Computer wins this round!)
   if (playerScore === 5) {
     console.log(playerWin);
     return;
@@ -81,5 +92,4 @@ function gameScore(result) {
     return;
   }
 }
-//Specifies round win/game win messages
 
